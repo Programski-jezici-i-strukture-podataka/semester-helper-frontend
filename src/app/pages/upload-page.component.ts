@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UploadService } from '../services/upload.service';
+import { UploadService } from '../services/attendance.service';
 
 @Component({
   selector: 'app-upload-page',

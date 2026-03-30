@@ -1,0 +1,13 @@
+input, button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+}
+
+button:hover {
+  background: #1d4ed8;
+}

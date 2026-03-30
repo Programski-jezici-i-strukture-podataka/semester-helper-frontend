@@ -1,0 +1,33 @@
+<div class="card">
+  <h1>Upload CSV</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="assistant">Assistant</label>
+      <input id="assistant" type="text" formControlName="assistant" />
+    </div>
+
+    <div class="field">
+      <label for="group">Group</label>
+      <input id="group" type="text" formControlName="group" />
+    </div>
+
+    <div class="field">
+      <label for="theme">Theme</label>
+      <input id="theme" type="text" formControlName="theme" />
+    </div>
+
+    <div class="field">
+      <label for="file">CSV file</label>
+      <input id="file" type="file" accept=".csv,text/csv" (change)="onFileSelected($event)" />
+      <div class="filename" *ngIf="selectedFile">{{ selectedFile.name }}</div>
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Uploading...' : 'Submit' }}
+    </button>
+  </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

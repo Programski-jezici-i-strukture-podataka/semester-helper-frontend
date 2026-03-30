@@ -1,3 +1,3 @@
 export const environment = {
-  apiBaseUrl: 'https://your-render-service.onrender.com'
+  apiBaseUrl: 'https://semester-helper-backend.onrender.com'
 };

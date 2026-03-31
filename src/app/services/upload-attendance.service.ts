@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class UploadService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiBaseUrl}/attendance`;
+  private apiUrl = `${environment.apiBaseUrl}/upload-attendance`;
 
   uploadCsv(assistant: string, group: string, theme: string, file: File) {
     const formData = new FormData();

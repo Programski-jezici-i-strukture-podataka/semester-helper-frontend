@@ -31,7 +31,7 @@ export class UploadPageComponent {
 
     if (file && !file.name.toLowerCase().endsWith('.csv')) {
       this.selectedFile = null;
-      this.errorMessage = 'Please select a CSV file.';
+      this.errorMessage = 'Izaberite datoteku sa ekstenzijom CSV.';
       return;
     }
 
@@ -44,7 +44,7 @@ export class UploadPageComponent {
     this.errorMessage = '';
 
     if (this.form.invalid || !this.selectedFile) {
-      this.errorMessage = 'Fill all fields and choose a CSV file.';
+      this.errorMessage = 'Popuniti sva polja i izabrati CSV datoteku.';
       return;
     }
 
@@ -62,14 +62,14 @@ export class UploadPageComponent {
       .subscribe({
         next: (response) => {
           console.log(response);
-          this.successMessage = 'Upload successful.';
+          this.successMessage = 'Slanje uspešno.';
           this.loading = false;
           this.form.reset();
           this.selectedFile = null;
         },
         error: (err) => {
           console.error(err);
-          this.errorMessage = err?.error?.detail || 'Upload failed.';
+          this.errorMessage = err?.error?.detail || 'Slanje neuspešno.';
           this.loading = false;
         }
       });

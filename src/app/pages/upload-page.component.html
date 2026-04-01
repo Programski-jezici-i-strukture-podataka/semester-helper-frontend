@@ -1,30 +1,30 @@
 <div class="card">
-  <h1>Upload CSV</h1>
+  <h1>Upiši prisustvo na vežbama</h1>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="field">
-      <label for="assistant">Assistant</label>
+      <label for="assistant">Asistent</label>
       <input id="assistant" type="text" formControlName="assistant" />
     </div>
 
     <div class="field">
-      <label for="group">Group</label>
+      <label for="group">Grupa</label>
       <input id="group" type="text" formControlName="group" />
     </div>
 
     <div class="field">
-      <label for="theme">Theme</label>
+      <label for="theme">Tema</label>
       <input id="theme" type="text" formControlName="theme" />
     </div>
 
     <div class="field">
-      <label for="file">CSV file</label>
+      <label for="file">CSV datoteka</label>
       <input id="file" type="file" accept=".csv,text/csv" (change)="onFileSelected($event)" />
       <div class="filename" *ngIf="selectedFile">{{ selectedFile.name }}</div>
     </div>
 
     <button type="submit" [disabled]="loading">
-      {{ loading ? 'Uploading...' : 'Submit' }}
+      {{ loading ? 'Šalje se na server...' : 'Pošalji' }}
     </button>
   </form>
 

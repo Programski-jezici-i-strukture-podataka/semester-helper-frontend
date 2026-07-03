@@ -4,13 +4,13 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UploadService } from '../services/upload-attendance.service';
 
 @Component({
-  selector: 'app-upload-page',
+  selector: 'app-upload-attendance',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './upload-page.component.html',
-  styleUrl: './upload-page.component.css'
+  templateUrl: './upload-attendance.component.html',
+  styleUrl: './upload-attendance.component.css'
 })
-export class UploadPageComponent {
+export class UploadAttendanceComponent {
   private fb = inject(FormBuilder);
   private uploadService = inject(UploadService);
 
@@ -53,7 +53,7 @@ export class UploadPageComponent {
     this.loading = true;
 
     this.uploadService
-      .uploadCsv(
+      .uploadAttendanceCsv(
         assistant ?? '',
         group ?? '',
         theme ?? '',

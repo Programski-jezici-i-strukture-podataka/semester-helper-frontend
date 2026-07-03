@@ -1,0 +1,18 @@
+<div class="card">
+    <h1>Upload spiska studenata</h1>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="file">CSV datoteka</label>
+      <input id="file" type="file" accept=".csv,text/csv" (change)="onFileSelected($event)" />
+      <div class="filename" *ngIf="selectedFile">{{ selectedFile.name }}</div>
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Šalje se na server...' : 'Pošalji' }}
+    </button>
+  </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

@@ -1,0 +1,57 @@
+<div class="card">
+  <h1>Upiši rezultate sa testa</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <select id="test" formControlName="test">
+        <option value="">Izaberite test</option>
+        <option value="T1">T1</option>
+        <option value="T2">T2</option>
+        <option value="T3">T3</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="file">CSV datoteka</label>
+      <input id="file" type="file" accept=".csv,text/csv" (change)="onFileSelected($event)" />
+      <div class="filename" *ngIf="selectedFile">{{ selectedFile.name }}</div>
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Šalje se na server...' : 'Pošalji' }}
+    </button>
+  </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="uploadResult" class="result">
+  <h2>Rezultat uploada</h2>
+
+  <p>{{ uploadResult.message }}</p>
+
+  <p>
+    Ažurirano rezultata: {{ uploadResult.updated }}
+  </p>
+
+  <div *ngIf="uploadResult.not_found.length > 0">
+    <h3>Nisu pronađeni</h3>
+
+    <ul>
+      <li *ngFor="let student of uploadResult.not_found">
+        {{ student }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="uploadResult.invalid_rows.length > 0">
+    <h3>Neispravni redovi</h3>
+
+    <ul>
+      <li *ngFor="let row of uploadResult.invalid_rows">
+        {{ row | json }}
+      </li>
+    </ul>
+  </div>
+</div>
